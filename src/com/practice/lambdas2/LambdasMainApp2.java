@@ -10,7 +10,6 @@ import java.util.function.Predicate;
 
 public class LambdasMainApp2 {
 
-
     public static List<Person> personList = new ArrayList<>(Arrays.asList(
             new Person("A", "Z", 29),
             new Person("B", "Y", 29),
@@ -21,6 +20,20 @@ public class LambdasMainApp2 {
             ));
 
     public static void main(String[] args) {
+
+        List<Integer> number = Arrays.asList(2,3,4,5);
+        int even = number.stream()
+                .filter(x-> x%2==0)
+                .reduce(0,(ans,i)-> ans+i);
+        System.out.println(">>>>>>>>"+even+"<<<<<<<<");
+
+        /**
+         * reduce(identity, accumulator, combiner)
+         * 0 ->
+         * ans=0 || i=next element in the stream iteration is automatically assigned
+         * ans+1 -> operation to be performed (repeatedly  adding all elements).
+         * Here all even elements are added as filter is used before reduce)
+         */
 
         //Sort by first name
         System.out.println("Person sorted by first name");
@@ -36,14 +49,14 @@ public class LambdasMainApp2 {
         printAllByCondition(
                 personList,
                 (person) -> true,
-                (person -> System.out.println(person)));
+                ((person) -> System.out.println(person)));
 
         //Print ALL person whose first name starting with 'A'
         System.out.println("ALL Person whose first name starting with 'A'");
         printAllByCondition(
                 personList,
-                (person -> person.getFirstName().startsWith("A")),
-                (person -> System.out.println(person.getFirstName())));
+                ((person) -> person.getFirstName().startsWith("A")),
+                ((person) -> System.out.println(person.getFirstName())));
     }
 
     public static void printAllByCondition(List<Person> personList, Predicate<Person> predicate, Consumer<Person> consumer) {

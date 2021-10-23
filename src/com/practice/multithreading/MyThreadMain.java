@@ -2,9 +2,9 @@ package com.practice.multithreading;
 
 public class MyThreadMain {
     public static void main(String[] args) {
-//        MyThread1 myThread1Runnable = new MyThread1();
-//        Thread thread = new Thread(myThread1Runnable);
-//        thread.start();
+        MyThread1 myThread1Runnable = new MyThread1();
+        Thread thread = new Thread(myThread1Runnable);
+        thread.start();
 
         Runnable runnable1 = () -> {
             for (int i = 0; i < 10; i++) {

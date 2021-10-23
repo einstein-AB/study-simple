@@ -7,6 +7,7 @@ public class LambdasMainApp1 {
         GreetingInterface greetingInterface = new GreetingsImpl();
         greetingInterface.greetings();
 
+        //Inner Class way of writing the implementation there itself
         GreetingInterface greetingInterface1 = new GreetingInterface() {
             @Override
             public void greetings() {
@@ -15,6 +16,7 @@ public class LambdasMainApp1 {
         };
         greetingInterface1.greetings();
 
+        //Lambda way
         GreetingInterface lambdaImpl = ()-> System.out.println("Hello World from Lambda");
         lambdaImpl.greetings();
     }
