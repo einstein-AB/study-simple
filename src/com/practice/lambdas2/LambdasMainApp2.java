@@ -12,20 +12,14 @@ public class LambdasMainApp2 {
 
     public static List<Person> personList = new ArrayList<>(Arrays.asList(
             new Person("A", "Z", 29),
-            new Person("B", "Y", 29),
-            new Person("C", "X", 29),
-            new Person("D", "W", 29),
-            new Person("E", "V", 29),
-            new Person("AA", "ZZ", 29)
+            new Person("B", "Y", 77),
+            new Person("C", "X", 67),
+            new Person("D", "W", 88),
+            new Person("E", "V", 11),
+            new Person("AA", "ZZ", 23)
             ));
 
     public static void main(String[] args) {
-
-        List<Integer> number = Arrays.asList(2,3,4,5);
-        int even = number.stream()
-                .filter(x-> x%2==0)
-                .reduce(0,(ans,i)-> ans+i);
-        System.out.println(">>>>>>>>"+even+"<<<<<<<<");
 
         /**
          * reduce(identity, accumulator, combiner)
@@ -34,6 +28,20 @@ public class LambdasMainApp2 {
          * ans+1 -> operation to be performed (repeatedly  adding all elements).
          * Here all even elements are added as filter is used before reduce)
          */
+
+        List<Integer> number = Arrays.asList(2,3,4,5);
+        int even = number.stream()
+                .filter(x-> x%2==0)
+                .reduce(0,(ans,i)-> ans+i);
+        System.out.println(">>>>>>>>"+even+"<<<<<<<<");
+
+        Integer sumOfAgesOfA = personList.stream()
+                .filter(person -> person.getFirstName().contains("A") || person.getLastName().contains("A"))
+                .map(person -> person.getAge())
+                .reduce(0, (p1, p2) -> p1 + p2);
+
+        System.out.println("sum: "+sumOfAgesOfA);
+
 
         //Sort by first name
         System.out.println("Person sorted by first name");
@@ -65,7 +73,7 @@ public class LambdasMainApp2 {
                 consumer.accept(person);
             }
         }
-
     }
+
 
 }

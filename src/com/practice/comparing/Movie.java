@@ -1,12 +1,12 @@
-package com.practice.movie;
+package com.practice.comparing;
 
-public class MovieRatingDetails {
+public class Movie implements Comparable<Movie> {
 
     private Integer movieId;
     private String movieName;
     private Integer movieRating;
 
-    public MovieRatingDetails(Integer movieId, String movieName, Integer movieRating) {
+    public Movie(Integer movieId, String movieName, Integer movieRating) {
         this.movieId = movieId;
         this.movieName = movieName;
         this.movieRating = movieRating;
@@ -38,10 +38,21 @@ public class MovieRatingDetails {
 
     @Override
     public String toString() {
-        return "MovieRatingDetails{" +
+        return "Movie{" +
                 "movieId=" + movieId +
                 ", movieName='" + movieName + '\'' +
                 ", movieRating=" + movieRating +
                 '}';
+    }
+
+    /**
+     * Compares this object with the specified object for order.  Returns a
+     * negative integer, zero, or a positive integer as this object is less
+     * than, equal to, or greater than the specified object.
+     *
+     */
+    @Override
+    public int compareTo(Movie movie) {
+        return this.movieRating - movie.movieRating;
     }
 }

@@ -4,6 +4,7 @@ public class LambdasMainApp1 {
 
     public static void main(String[] args) {
 
+        //Traditional Approach
         GreetingInterface greetingInterface = new GreetingsImpl();
         greetingInterface.greetings();
 
@@ -17,8 +18,8 @@ public class LambdasMainApp1 {
         greetingInterface1.greetings();
 
         //Lambda way
-        GreetingInterface lambdaImpl = ()-> System.out.println("Hello World from Lambda");
-        lambdaImpl.greetings();
+        GreetingInterface lambdaImpl = () -> System.out.println("Hello World Abhishek");
+        GreetingInterface lambdaImpl2 = () -> System.out.println("Hello World Abhinav");
     }
     
     

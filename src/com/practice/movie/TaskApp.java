@@ -2,11 +2,9 @@ package com.practice.movie;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class TaskApp {
 
@@ -26,7 +24,7 @@ public class TaskApp {
             validRating = (movieRatings <= 10 && movieRatings > 1);
 
             if (validRating) {
-                movieRatingDetails.add(new MovieRatingDetails(movieName, movieRatings));
+                movieRatingDetails.add(new MovieRatingDetails(new Random().nextInt(),movieName, movieRatings));
                 userContinues = wishToContinue(reader);
             } else {
                 System.out.println("Invalid Ratings. Please try again!");

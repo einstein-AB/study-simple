@@ -19,7 +19,8 @@ public class MethodReferenceExampleMain {
 
         //Instance method reference
         CustomReferenceClass customReferenceClass = new CustomReferenceClass();
-        myStrList.forEach(customReferenceClass::printCollection);
+        myStrList.forEach(new CustomReferenceClass()::printCollection);
+        //myStrList.forEach(customReferenceClass::printCollection);
 
         //Constructor method reference
         Supplier<Map> myList = HashMap::new;
